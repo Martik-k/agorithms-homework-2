@@ -2,7 +2,7 @@
 #include <string>
 #include <unordered_map>
 
-std::pair<int, std::unordered_map<std::string, int>> developers_number_of_projects() {
+std::pair<int, std::unordered_map<std::string, int>> parse_input() {
     std::string line;
     getline(std::cin, line);
 
@@ -31,8 +31,7 @@ std::pair<int, std::unordered_map<std::string, int>> developers_number_of_projec
     return {k, devs_nums_projects};
 }
 
-int count_overloaded_developers() {
-    auto [k, devs_nums_projects] = developers_number_of_projects();
+int count_overloaded_developers(int k, std::unordered_map<std::string, int> devs_nums_projects) {
     int result = 0;
     for (auto &p : devs_nums_projects) {
         if (p.second > k) result++;
@@ -41,6 +40,7 @@ int count_overloaded_developers() {
 }
 
 int main() {
-    std::cout << count_overloaded_developers() << std::endl;
+    auto [k, devs_nums_projects] = parse_input();
+    std::cout << count_overloaded_developers(k, devs_nums_projects) << std::endl;
     return 0;
 }
