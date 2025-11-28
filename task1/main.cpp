@@ -6,8 +6,8 @@ std::pair<int, std::unordered_map<std::string, int>> parse_input() {
     std::string line;
     getline(std::cin, line);
 
-    size_t first_space = line.find(' ');
-    int k = stoi(line.substr(0, first_space));
+    size_t first_space = line.find(' ', 1);
+    int k = std::stoi(line.substr(1, first_space));
 
     size_t i = first_space + 1;
     std::unordered_map<std::string, int> devs_nums_projects;

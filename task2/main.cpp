@@ -12,8 +12,8 @@ std::pair<int, std::vector<Training>> parse_input() {
     std::string line;
     getline(std::cin, line);
 
-    size_t first_space = line.find(' ');
-    int T = stoi(line.substr(0, first_space));
+    size_t first_space = line.find(' ', 1);
+    int T = stoi(line.substr(1, first_space));
 
     std::vector<Training> trainings;
 
